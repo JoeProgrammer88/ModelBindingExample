@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ModelBindingExample.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ModelBindingExampleContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ModelBindingExampleContext") ?? throw new InvalidOperationException("Connection string 'ModelBindingExampleContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
