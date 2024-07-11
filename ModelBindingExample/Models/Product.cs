@@ -17,7 +17,7 @@ namespace ModelBindingExample.Models
         /// The user facing full name of the product
         /// </summary>
         [MaxLength(200)]
-        [RegularExpression(@"^[a-zA-Z0-9]*$", ErrorMessage = "Only alphanumeric characters are allowed.")]
+        [RegularExpression(@"^[a-zA-Z0-9\s]*$", ErrorMessage = "Only alphanumeric characters are allowed.")]
         public required string ProductName { get; set; }
 
         /// <summary>
